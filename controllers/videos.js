@@ -69,10 +69,10 @@ const getVideo = async (req, res) => {
   try {
     const { id } = req.params
     const video = await Video.findByIdAndUpdate({ _id: id }, { $inc: { views: 1 } }, { new: true })
-    console.log(req.user.userId)
-    if (req.user.userId) {
-      await User.findByIdAndUpdate({ _id: req.user.userId }, { $addToSet: { history: video._id } })
-    }
+    // console.log(req.user.userId)
+    // if (req.user.userId) {
+    //   await User.findByIdAndUpdate({ _id: req.user.userId }, { $addToSet: { history: video._id } })
+    // }
     res.status(200).json(video)
   } catch (error) {
     res.status(500).json({ message: error.message })

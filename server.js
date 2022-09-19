@@ -10,7 +10,7 @@ const usersRoutes = require('./routes/users')
 const videosRoutes = require('./routes/videos')
 const commentsRoutes = require('./routes/comments')
 
-app.use(cors({ origin: ["http://localhost:3000"], credentials: true }))
+app.use(cors({ origin: [process.env.CLIENT], credentials: true }))
 app.use(cookieParser())
 app.use(bodyParser.json({ limit: "100mb" }))
 app.use(bodyParser.urlencoded({ limit: "100mb", extended: true }))
