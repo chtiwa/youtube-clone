@@ -10,7 +10,25 @@ const authRoutes = require('./routes/auth')
 const usersRoutes = require('./routes/users')
 const videosRoutes = require('./routes/videos')
 const commentsRoutes = require('./routes/comments')
+const path = require('path')
+const helmet = require('helmet')
+const xss = require('xss-clean')
+const rateLimiter = require('express-rate-limit')
 
+app.use(css())
+app.use(rateLimiter({
+  windowMs: 15 * 60 * 1000,
+  max: 500,
+}))
+app.use(
+  helmet.contentSecurityPolicy({
+    useDefaults: true,
+    directives: {
+      "img-src": ["'self'", "https: data:"],
+      "media-src": ["'self'", "https: data:"]
+    }
+  })
+)
 
 app.use(cors({ origin: [process.env.CLIENT], credentials: true }))
 app.use(cookieParser())
@@ -23,6 +41,10 @@ app.use('/api/videos', videosRoutes)
 app.use('/api/comments', commentsRoutes)
 
 app.use(errorHandler)
+
+app.use(express.static(path.join(__dirname, "/build")))
+
+https://facebook-clone-chtiwa.herokuapp.com
 
 const port = process.env.PORT || 5000
 
