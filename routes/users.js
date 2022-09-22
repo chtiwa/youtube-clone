@@ -1,9 +1,8 @@
 const express = require('express')
 const router = express.Router()
-const { likeVideo, unlikeVideo, undislikeVideo, dislikeVideo, subscribe, unsubscribe, setTheme, getChannel } = require('../controllers/users')
+const { likeVideo, unlikeVideo, undislikeVideo, dislikeVideo, subscribe, unsubscribe, getChannel } = require('../controllers/users')
 const auth = require('../middleware/authentication')
 
-router.route('/theme').post(setTheme)
 router.route('/sub/:channelId').patch(auth, subscribe)
 router.route('/unsub/:channelId').patch(auth, unsubscribe)
 router.route('/like/:videoId').patch(auth, likeVideo)

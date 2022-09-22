@@ -3,7 +3,6 @@ const mongoose = require('mongoose')
 const VideoSchema = new mongoose.Schema({
   userId: {
     type: mongoose.Schema.Types.ObjectId,
-    // required: true
   },
   title: {
     type: String,
@@ -15,20 +14,16 @@ const VideoSchema = new mongoose.Schema({
   },
   channelName: {
     type: String,
-    // required: true
   },
   channelImageUrl: {
     type: String,
-    // required: true
   },
   // thubnail img
-  thumnailUrl: {
+  thumbnailUrl: {
     type: String,
-    // required: true
   },
   videoUrl: {
     type: String,
-    required: true
   },
   duration: {
     type: String,
@@ -44,13 +39,11 @@ const VideoSchema = new mongoose.Schema({
   },
   likes: {
     type: [mongoose.Schema.Types.ObjectId],
-    default: [],
-    // unique: true
+    default: []
   },
   dislikes: {
     type: [mongoose.Schema.Types.ObjectId],
-    default: [],
-    // unique: true
+    default: []
   },
   commentsNumber: {
     type: Number,

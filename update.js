@@ -23,8 +23,8 @@ async function run() {
     //   }
     // }
     // const result = await videos.updateMany(filter, updateDoc);
-    const result = await comments.deleteMany({})
-    console.log(`Updated ${result.modifiedCount} documents`);
+    // const result = await comments.deleteMany({})
+    // console.log(`Updated ${result.modifiedCount} documents`);
   } finally {
     await client.close();
   }

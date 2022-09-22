@@ -13,18 +13,15 @@ const UserSchema = new mongoose.Schema({
   },
   subscribers: {
     type: [mongoose.Schema.Types.ObjectId],
-    default: [],
-    unique: true
+    default: []
   },
   subscriptions: {
     type: [mongoose.Schema.Types.ObjectId],
-    default: [],
-    unique: true
+    default: []
   },
   history: {
     type: [mongoose.Schema.Types.ObjectId],
-    default: [],
-    unique: true
+    default: []
   }
 }, { timestamps: true })
 

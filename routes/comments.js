@@ -11,6 +11,6 @@ router.route('/delete/:commentId').delete(auth, deleteComment)
 router.route('/nested/:parentId').get(getNestedComments)
 router.route('/nested/:videoId/:parentId').post(auth, createNestedComment)
 router.route('/:videoId').post(auth, createComment)
-router.route('/:videoId').get(getComments)
+router.route('/:videoId/:filter').get(getComments)
 
 module.exports = router

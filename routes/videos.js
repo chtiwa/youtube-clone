@@ -7,8 +7,8 @@ const uploadImage = require('../utils/multerImage')
 const auth = require('../middleware/authentication')
 
 // /api/videos
-router.route('/').get(getVideos).post(auth, uploadVideo.single('video'), createVideo)
-router.route('/next/:videoId').post(auth, uploadImage.single('image'), createVideoNext)
+router.route('/').get(getVideos).post(auth, uploadImage.single('image'), createVideo)
+router.route('/next/:videoId').post(auth, uploadVideo.single('video'), createVideoNext)
 router.route('/tags').get(getRandomTags)
 router.route('/subs').get(auth, getVideosBySubscriptions)
 // results?search=traversy
